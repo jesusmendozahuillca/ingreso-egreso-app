@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Ngrx
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ChartsModule } from 'ng2-charts';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -25,6 +26,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {environment} from '../environments/environment';
 import {isPolyfillsEntry} from '@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs';
 import {appReducer} from './app.reducer';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {appReducer} from './app.reducer';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresoPipe
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import {appReducer} from './app.reducer';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
